@@ -1,17 +1,7 @@
+{% extends 'basic.html' %}
+{% block title %} Maxpro.com {%endblock%}
 {% load static %}
-<!DOCTYPE html>
-<html lang="">
-<head>
-    <title>Maxpro.com</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="{% static 'styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
-</head>
-<body id="top">
-
-{% include 'include/header.html'%}
-<!-- End Top Background Image Wrapper -->
-
+{% block body %}
 <div class="wrapper row3">
     <main class="hoc container clear">
         <!-- main body -->
@@ -174,13 +164,4 @@
         <footer class="center"><a class="btn" href="#">Cras fringilla gravida</a></footer>
     </section>
 </div>
-<!-- footer start -->
-{% include 'include/footer.html'%}
-<!--end foroter-->
-<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
-<!-- JAVASCRIPTS -->
-<script src="{% static 'scripts/jquery.min.js' %}"></script>
-<script src="{% static 'scripts/jquery.backtotop.js' %}"></script>
-<script src="{% static 'scripts/jquery.mobilemenu.js' %}"></script>
-</body>
-</html>
+{%endblock%}

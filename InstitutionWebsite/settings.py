@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path,os
-
+from pathlib import Path, os
+from dotenv import load_dotenv
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,6 +28,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
+TWILIO_NUMBER = os.getenv("TWILIO_NUMBER")
+SMS_BROADCAST_TO_NUMBERS = [
+    "", # use the format +19735551234
+    "",
+    "",
+]
 
 # Application definition
 
