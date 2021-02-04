@@ -1,4 +1,5 @@
 {% load static %}
+{% static 'images' as BaseUrl %}
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -12,6 +13,14 @@
 {% include 'include/header.html'%}
 <!-- End Top Background Image Wrapper -->
 
+    <div id="pageintro" class="hoc clear">
+        <article class="center">
+            <h6 class="heading underline">MAXPRO PREMIUM EDUCATION CONSULTANCY</h6>
+
+            <p>We offer student to make best decision to study aboard.</p>
+            <footer><a class="btn" href="#">About </a></footer>
+        </article>
+    </div>
 <div class="wrapper row3">
     <main class="hoc container clear">
         <!-- main body -->
@@ -174,6 +183,8 @@
         <footer class="center"><a class="btn" href="#">Cras fringilla gravida</a></footer>
     </section>
 </div>
+
+
 <!-- footer start -->
 {% include 'include/footer.html'%}
 <!--end foroter-->
