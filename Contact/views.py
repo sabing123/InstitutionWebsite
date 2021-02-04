@@ -17,7 +17,8 @@ def contactview(request):
         subject= form.cleaned_data.get("subject")
         message=form.cleaned_data.get("message")
         message= name + " with the email, " + email + ", sent the following message:\n\n" + message;
-        send_mail(subject, message, 'rupesh.thapa2050@gmail.com', [email])
+        mail='rupesh.thapa2050@gmail.com'
+        send_mail(subject, message,'',[mail])
         context= {'form': form}
         messages.info(request, 'Your message has been sent.')
         return render(request, 'contact.html', context)
