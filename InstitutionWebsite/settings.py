@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path, os
-
+from dotenv import load_dotenv
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +28,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
+TWILIO_NUMBER = os.getenv("TWILIO_NUMBER")
+SMS_BROADCAST_TO_NUMBERS = [
+    "", # use the format +19735551234
+    "",
+    "",
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,7 +47,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +64,7 @@ ROOT_URLCONF = 'InstitutionWebsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'Templates')],
+        'DIRS': [os.path.join(BASE_DIR,'Templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +87,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-
     }
 }
 
@@ -127,9 +134,5 @@ STATICFILES_DIRS =[
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com' #Localhost
-EMAIL_PORT = 587 #1825
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "rupesh.thapa2050@gmail.com"
-EMAIL_HOST_PASSWORD = "jpyecjyvvugwpggy"
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
