@@ -20,7 +20,7 @@ text-align: justify;
                 <p class="lead text-muted mb-0">{{ab1.about_desc}}</p>
             </div>
             <div class="col-lg-6 d-none d-lg-block"><img
-                    src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/illus_kftyh4.png" alt=""
+                    src="{{ ab1.about_image.url }}" alt=""
                     class="img-fluid"></div>
         </div>
     </div>
@@ -40,18 +40,18 @@ text-align: justify;
 
                 </p>
             </div>
-            {% endfor %}
-
 
             <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img
-                    src="https://res.cloudinary.com/mhmd/image/upload/v1556834139/img-1_e25nvh.jpg" alt=""
-                    class="img-fluid mb-4 mb-lg-0"></div>
+                    src="{{ ab2.about_image.url }}" alt=""
+                    class="img-fluid mb-4 mb-lg-0">
+            </div>
         </div>
-        {% for ab3 in ab3%}
+        {% endfor %}
 
+        {% for ab3 in ab3%}
         <div class="row align-items-center">
             <div class="col-lg-5 px-5 mx-auto"><img
-                    src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/img-2_vdgqgn.jpg" alt=""
+                    src="{{ ab3.about_image.url }}" alt=""
                     class="img-fluid mb-4 mb-lg-0"></div>
             <div class="col-lg-6"><i class="fa fa-book fa-2x mb-3 text-primary"></i>
                 <h2 class="font-weight-dark">{{ab3.about_category}}</h2>
