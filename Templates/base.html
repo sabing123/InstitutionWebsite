@@ -1,0 +1,26 @@
+{% load static %}
+{% static 'images' as BaseUrl %}
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Contact Us</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="{% static 'styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+
+{% include 'include/header.html'%}
+<!-- End Top Background Image Wrapper -->
+{% block contact %}
+{% endblock %}
+<!-- footer start -->
+{% include 'include/footer.html'%}
+<!--end foroter-->
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="{% static 'scripts/jquery.min.js' %}"></script>
+<script src="{% static 'scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'scripts/jquery.mobilemenu.js' %}"></script>
+</body>
+</html>

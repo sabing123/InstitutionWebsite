@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block contact %}
+<div class="wrapper row2">
+<section class="hoc container clear">
+<form class="form" method="POST">
+    <div class="form-header">
+        <h1>GET IN TOUCH</h1>
+    </div>
+    <div class="form-body">
+            {% csrf_token %}
+            {{ form|crispy }}
+    </div>
+    <div class="form-footer">
+        <button type="submit" class="btn">Send</button>
+    </div>
+</form>
+</section>
+</div>
+{% endblock %}
