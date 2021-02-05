@@ -11,6 +11,12 @@ from .models import Aboutus
 def index(request):
     return render(request, 'index.html')
 
+def blog(request):
+    return render(request, 'blog.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
 
 def aboutus(request):
     ab1 = Aboutus.objects.filter(about_category='MaxPro Computer')
@@ -18,16 +24,6 @@ def aboutus(request):
     ab3 = Aboutus.objects.filter(about_category='About Classes')
     print(ab1,ab2,ab3)
     params = {'ab1': ab1, 'ab2':ab2,'ab3':ab3}
-
-    # allaboutus = []
-    # catabout = Aboutus.objects.values('about_category', 'id')
-    # cats = {item['about_category'] for item in catabout}
-    # for cat in cats:
-    #     about = Aboutus.objects.filter(about_category=cat)
-    #     allaboutus.append([about])
-    #
-    # params = {'allaboutus': allaboutus}
-    # print(params)
     return render(request, 'about.html', params)
 
 
