@@ -3,6 +3,8 @@ from django.conf import settings
 from django.http import HttpResponse
 from twilio.rest import Client
 
+from .models import Aboutus
+
 
 # Create your views here.
 
@@ -11,7 +13,22 @@ def index(request):
 
 
 def aboutus(request):
-    return render(request, 'about.html')
+    ab1 = Aboutus.objects.filter(about_category='MaxPro Computer')
+    ab2 = Aboutus.objects.filter(about_category='About Us')
+    ab3 = Aboutus.objects.filter(about_category='About Classes')
+    print(ab1,ab2,ab3)
+    params = {'ab1': ab1, 'ab2':ab2,'ab3':ab3}
+
+    # allaboutus = []
+    # catabout = Aboutus.objects.values('about_category', 'id')
+    # cats = {item['about_category'] for item in catabout}
+    # for cat in cats:
+    #     about = Aboutus.objects.filter(about_category=cat)
+    #     allaboutus.append([about])
+    #
+    # params = {'allaboutus': allaboutus}
+    # print(params)
+    return render(request, 'about.html', params)
 
 
 def broadcast_sms(request):
