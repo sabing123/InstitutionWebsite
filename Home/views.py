@@ -3,7 +3,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from twilio.rest import Client
 
-from .models import Aboutus
+from .models import Aboutus, Blog
 
 
 # Create your views here.
@@ -11,8 +11,12 @@ from .models import Aboutus
 def index(request):
     return render(request, 'index.html')
 
+
 def blog(request):
-    return render(request, 'blog.html')
+    blog1 = Blog.objects.all()
+    print(blog1)
+    return render(request, "blog.html", {'blog1': blog1})
+
 
 def contact(request):
     return render(request, 'contact.html')
