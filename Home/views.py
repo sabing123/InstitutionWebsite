@@ -14,7 +14,6 @@ def index(request):
 
 def blog(request):
     blog1 = Blog.objects.all()
-    print(blog1)
     return render(request, "blog.html", {'blog1': blog1})
 
 
@@ -26,18 +25,5 @@ def aboutus(request):
     ab1 = Aboutus.objects.filter(about_category='MaxPro Computer')
     ab2 = Aboutus.objects.filter(about_category='About Us')
     ab3 = Aboutus.objects.filter(about_category='About Classes')
-    print(ab1,ab2,ab3)
     params = {'ab1': ab1, 'ab2':ab2,'ab3':ab3}
     return render(request, 'about.html', params)
-
-
-def broadcast_sms(request):
-    message_to_broadcast = ("Thnk you for selecting our institute. Our Member will shortly Contact you"
-                            "yet? Grab it here: https://www.twilio.com/quest")
-    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-    for recipient in settings.SMS_BROADCAST_TO_NUMBERS:
-        if recipient:
-            client.messages.create(to=recipient,
-                                   from_=settings.TWILIO_NUMBER,
-                                   body=message_to_broadcast)
-    return render(request, 'index.html')
